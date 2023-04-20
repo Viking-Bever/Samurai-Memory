@@ -7,40 +7,48 @@ public class Player : MonoBehaviour
 {
     private List<int> KeyPressOrder = new List<int>();
     public int Health = 100;
-    bool PressRi = false;
-    bool PressUp = false;
-    bool PressDw = false;
+   
     // Start is called before the first frame update
     void Start()
     {
-        
+        RandomOrder();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-
-            Attack();
-            PressRi = true;
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            PressUp = true;
-        }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            PressDw = true;
+            Attack(0);
+        }
+        else if(Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Attack(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            Attack(2);
         }
     }
 
-    void Attack()
+    void Attack(short button)
     {
-        //Preform strike animation
-        //check if the key was right
-        //Deal damage
-
-
+        if (button == KeyPressOrder[0])
+        {
+            Debug.Log("Rätt");
+            KeyPressOrder.RemoveAt(0);
+        }
+        else
+        {
+            Debug.Log("Fel");
+        }
+    }
+    void RandomOrder()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            KeyPressOrder.Add(Random.Range(0, 3));
+            Debug.Log(KeyPressOrder[i]);
+        }
     }
 }
