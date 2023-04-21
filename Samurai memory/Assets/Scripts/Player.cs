@@ -29,6 +29,10 @@ public class Player : MonoBehaviour
         {
             Attack(2);
         }
+        if (Health <= 10)
+        {
+            Debug.Log("You died");
+        }
     }
 
     void Attack(short button)
@@ -41,6 +45,8 @@ public class Player : MonoBehaviour
         else
         {
             Debug.Log("Fel");
+            TakeDmg();
+            Debug.Log(Health);
         }
     }
     void RandomOrder()
@@ -50,5 +56,9 @@ public class Player : MonoBehaviour
             KeyPressOrder.Add(Random.Range(0, 3));
             Debug.Log(KeyPressOrder[i]);
         }
+    }
+    void TakeDmg()
+    {
+        Health -= 10;
     }
 }
