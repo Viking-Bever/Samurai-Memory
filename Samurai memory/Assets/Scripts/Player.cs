@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     private List<int> KeyPressOrder = new List<int>();
     public int Health = 100;
+    public Text textOrder;
    
     // Start is called before the first frame update
     void Start()
@@ -17,21 +19,17 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyUp(KeyCode.DownArrow))
         {
             Attack(0);
         }
-        else if(Input.GetKeyDown(KeyCode.UpArrow))
+        else if(Input.GetKeyUp(KeyCode.UpArrow))
         {
             Attack(1);
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetKeyUp(KeyCode.RightArrow))
         {
             Attack(2);
-        }
-        if (Health <= 10)
-        {
-            Debug.Log("You died");
         }
     }
 
@@ -41,12 +39,23 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Rätt");
             KeyPressOrder.RemoveAt(0);
+
+            if (KeyPressOrder.Count == 0)
+            {
+                RandomOrder();
+            }
         }
-        else
+        else if (button != KeyPressOrder[0])
         {
             Debug.Log("Fel");
             TakeDmg();
-            Debug.Log(Health);
+
+            if (Health <= 10)
+            {
+                Debug.Log("You died");
+            }
+
+            //Debug.Log(Health);
         }
     }
     void RandomOrder()
