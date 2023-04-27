@@ -9,26 +9,41 @@ public class Player : MonoBehaviour
     private List<int> KeyPressOrder = new List<int>();
     public int Health = 100;
     public Text textOrder;
-   
+    private Animator _anim;
+    private bool JA = false;
+    private bool DA = false;
+    private bool RA = false;
+    
     // Start is called before the first frame update
     void Start()
     {
         RandomOrder();
+        _anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+    }
+    private void FixedUpdate()
+    {
         if (Input.GetKeyUp(KeyCode.DownArrow))
         {
+            GetComponent<Animator>().SetBool("DA", true);
+            DA = true;
             Attack(0);
         }
-        else if(Input.GetKeyUp(KeyCode.UpArrow))
+        else if (Input.GetKeyUp(KeyCode.UpArrow))
         {
+            GetComponent<Animator>().SetBool("JA", true);
+            JA = true;
             Attack(1);
         }
         else if (Input.GetKeyUp(KeyCode.RightArrow))
         {
+            GetComponent<Animator>().SetBool("RA", true);
+            RA = true;
             Attack(2);
         }
     }
