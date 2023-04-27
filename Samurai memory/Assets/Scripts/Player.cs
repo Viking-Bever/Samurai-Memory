@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     private bool JA = false;
     private bool DA = false;
     private bool RA = false;
-    
+    private bool DMG = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,7 +64,8 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Fel");
             TakeDmg();
-
+            GetComponent<Animator>().SetBool("DMG", true);
+            DMG = true;
             if (Health <= 10)
             {
                 Debug.Log("You died");
