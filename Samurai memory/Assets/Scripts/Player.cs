@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,49 +9,57 @@ public class Player : MonoBehaviour
 {
     private List<int> KeyPressOrder = new List<int>();
     public int Health = 100;
-    public Text textOrder;
     private Animator _anim;
     private bool JA = false;
     private bool DA = false;
     private bool RA = false;
     private bool DMG = false;
+    [SerializeField] private Text TextOrdning;
+
+    private bool nedTryckt = false;
     // Start is called before the first frame update
     void Start()
     {
         RandomOrder();
+        Skriv();
         _anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
     private void FixedUpdate()
     {
-        if (Input.GetKeyUp(KeyCode.DownArrow))
-        {
-            GetComponent<Animator>().SetBool("DA", true);
-            DA = true;
-            Attack(0);
+       
+            if (Input.GetKeyUp(KeyCode.DownArrow))
+            {
+                GetComponent<Animator>().SetBool("DA", true);
+                DA = true;
+                Attack(0);
+            GetComponent<Animator>().SetBool("DA", false);
         }
-        else if (Input.GetKeyUp(KeyCode.UpArrow))
-        {
-            GetComponent<Animator>().SetBool("JA", true);
-            JA = true;
-            Attack(1);
-        }
-        else if (Input.GetKeyUp(KeyCode.RightArrow))
-        {
-            GetComponent<Animator>().SetBool("RA", true);
-            RA = true;
-            Attack(2);
-        }
+            else if (Input.GetKeyUp(KeyCode.UpArrow))
+            {
+                GetComponent<Animator>().SetBool("JA", true);
+                JA = true;
+                Attack(1);
+                
+            }
+            else if (Input.GetKeyUp(KeyCode.RightArrow))
+            {
+                GetComponent<Animator>().SetBool("RA", true);
+                RA = true;
+                Attack(2);
+                
+            }
+        
     }
 
-    void Attack(short button)
+    void Attack(short key)
     {
-        if (button == KeyPressOrder[0])
+        if (key == KeyPressOrder[0])
         {
             Debug.Log("Rätt");
             KeyPressOrder.RemoveAt(0);
@@ -58,9 +67,10 @@ public class Player : MonoBehaviour
             if (KeyPressOrder.Count == 0)
             {
                 RandomOrder();
+
             }
         }
-        else if (button != KeyPressOrder[0])
+        else if (key != KeyPressOrder[0])
         {
             Debug.Log("Fel");
             TakeDmg();
@@ -76,7 +86,7 @@ public class Player : MonoBehaviour
     }
     void RandomOrder()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 3; i++)
         {
             KeyPressOrder.Add(Random.Range(0, 3));
             Debug.Log(KeyPressOrder[i]);
@@ -85,5 +95,17 @@ public class Player : MonoBehaviour
     void TakeDmg()
     {
         Health -= 10;
+    }
+    void Skriv()
+    {
+        string OrdningS = "";
+
+
+        for (int i = 0; i < KeyPressOrder.Count; i++)
+        {
+            OrdningS += KeyPressOrder[i].ToString();
+        }
+        TextOrdning.text = OrdningS;
+
     }
 }
