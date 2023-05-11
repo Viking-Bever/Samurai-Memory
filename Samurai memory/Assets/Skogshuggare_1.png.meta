@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a20d9968ff767b74e8bedfa4ce468244
+guid: 9b0f307e319abc44aafbc9f5da18e275
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bara_star_0
+      name: Skogshuggare_1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
-        width: 64
-        height: 64
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20dbff9535ac3e544856c55f786fae7e
-      internalID: 600294138
+      spriteID: 3e9087f23595ebc4f9874ef201aaa89b
+      internalID: 1017195407
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bara_star_1
+      name: Skogshuggare_1_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
+        x: 32
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,104 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e036774609c60547ad3ecc50a22d450
-      internalID: -503177594
+      spriteID: e956a5f871f20b041993ae2206dc126c
+      internalID: 7505724
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bara_star_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fa1ef987be9d3df439ed5f8dec6821ed
-      internalID: 1430700401
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bara_star_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 73c427bda74773d439783913b5dca103
-      internalID: 767997133
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bara_star_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ba5c3596e10fb7c4090250fbe75f69e1
-      internalID: 702289783
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bara_star_5
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 15fbdabe5ff57314fb2f9cf94da05673
-      internalID: -668551201
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bara_star_6
+      name: Skogshuggare_1_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,8 +173,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6a1487c9633b904e938343a5f8575dc
-      internalID: -2130090712
+      spriteID: 3001f41dd14dbbf46908d758fac60628
+      internalID: -1874465477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skogshuggare_1_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aba2262fb90f864d8c6fff143fa618e
+      internalID: -696824216
       vertices: []
       indices: 
       edges: []
@@ -274,13 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bara_star_3: 767997133
-      bara_star_2: 1430700401
-      bara_star_0: 600294138
-      bara_star_6: -2130090712
-      bara_star_1: -503177594
-      bara_star_5: -668551201
-      bara_star_4: 702289783
+      Skogshuggare_1_1: 7505724
+      Skogshuggare_1_0: 1017195407
+      Skogshuggare_1_3: -696824216
+      Skogshuggare_1_2: -1874465477
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
