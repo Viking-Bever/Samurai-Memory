@@ -10,10 +10,6 @@ public class Player : MonoBehaviour
     private List<int> KeyPressOrder = new List<int>();
     public int Health = 100;
     private Animator _anim;
-    private bool JA = false;
-    private bool DA = false;
-    private bool RA = false;
-    private bool DMG = false;
     [SerializeField] private Text TextOrdning;
 
     private bool nedTryckt = false;
@@ -28,31 +24,20 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    private void FixedUpdate()
-    {
-       
-            if (Input.GetKeyUp(KeyCode.DownArrow))
+           if (Input.GetKeyUp(KeyCode.DownArrow))
             {
-                GetComponent<Animator>().SetBool("DA", true);
-                DA = true;
+                GetComponent<Animator>().Play("attackDown");
                 Attack(0);
-            GetComponent<Animator>().SetBool("DA", false);
-        }
+            }
             else if (Input.GetKeyUp(KeyCode.UpArrow))
             {
-                GetComponent<Animator>().SetBool("JA", true);
-                JA = true;
-                Attack(1);
-                
+                GetComponent<Animator>().Play("attackJump");
+                Attack(1);                
             }
             else if (Input.GetKeyUp(KeyCode.RightArrow))
             {
-                GetComponent<Animator>().SetBool("RA", true);
-                RA = true;
+                GetComponent<Animator>().Play("attackRight");
                 Attack(2);
-                
             }
         
     }
@@ -74,8 +59,7 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Fel");
             TakeDmg();
-            GetComponent<Animator>().SetBool("DMG", true);
-            DMG = true;
+            GetComponent<Animator>().Play("dmg");
             if (Health <= 10)
             {
                 Debug.Log("You died");
