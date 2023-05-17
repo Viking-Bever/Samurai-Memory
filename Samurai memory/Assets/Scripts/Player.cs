@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    private List<int> KeyPressOrder = new List<int>();
+    public List<int> KeyPressOrder = new List<int>();
     public int Health = 100;
     private Animator _anim;
     [SerializeField] private Text TextOrdning;

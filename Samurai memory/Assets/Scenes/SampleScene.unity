@@ -1703,6 +1703,7 @@ GameObject:
   - component: {fileID: 1283725912}
   - component: {fileID: 1283725911}
   - component: {fileID: 1283725913}
+  - component: {fileID: 1283725914}
   m_Layer: 0
   m_Name: Axeman
   m_TagString: Axeman
@@ -1797,6 +1798,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1283725914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283725907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b94224085c5bd4c4890b28dbae91a300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyPressOrder: 
 --- !u!1 &1300233697
 GameObject:
   m_ObjectHideFlags: 0
@@ -2249,6 +2263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2499d1ebd27211d40a396ca3cad2575b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KeyPressOrder: 
   Health: 100
   TextOrdning: {fileID: 313443348}
 --- !u!95 &1511812200
