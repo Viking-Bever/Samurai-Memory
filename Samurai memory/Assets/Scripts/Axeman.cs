@@ -5,27 +5,35 @@ using UnityEngine;
 
 public class Axeman : MonoBehaviour
 {
-    public List<int> keyPressOrder = new List<int>();
+    public List<int> KeyPressOrder;
+    [SerializeField] public GameObject Player;
+    public bool kör;
+    public bool Ninjalås;
     // Start is called before the first frame update
     void Start()
     {
-        keyPressOrder = GetComponent<Player>().KeyPressOrder;
+        kör = false;
+           List<int> KeyPressOrder = new List<int>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (keyPressOrder[0] == 1)
+        if (kör == true)
         {
-            GetComponent<Animator>().Play("WoodUpA");
+            KeyPressOrder = Player.GetComponent<Player>().SkickaOrdning();
+            if (KeyPressOrder[0] == 1)
+            {
+                GetComponent<Animator>().Play("WoodUpA");
+                KeyPressOrder.RemoveAt(0);
+            }
         }
     }
-  /*  public void attackani()
+    public void changeNinjalås()
     {
-        if (keyPressOrder[0] == 1)
-        {
-            GetComponent<Animator>().Play("attackJump");
-        }
+        if (Ninjalås == true)
+            Ninjalås= false;
+        else
+            Ninjalås = true;
     }
-*/
 }

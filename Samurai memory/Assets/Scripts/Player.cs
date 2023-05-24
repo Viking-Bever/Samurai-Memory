@@ -11,12 +11,16 @@ public class Player : MonoBehaviour
     public int Health = 100;
     private Animator _anim;
     [SerializeField] private Text TextOrdning;
+    public bool kör;
+    public bool Ninjalås;
 
     private bool nedTryckt = false;
     // Start is called before the first frame update
     void Start()
     {
         RandomOrder();
+        kör = true;
+        Ninjalås = false;
         Skriv();
         _anim = GetComponent<Animator>();
     }
@@ -24,7 +28,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-           if (Input.GetKeyUp(KeyCode.DownArrow))
+        if (Ninjalås = true)
+        {
+            if (Input.GetKeyUp(KeyCode.DownArrow))
             {
                 GetComponent<Animator>().Play("attackDown");
                 Attack(0);
@@ -32,13 +38,14 @@ public class Player : MonoBehaviour
             else if (Input.GetKeyUp(KeyCode.UpArrow))
             {
                 GetComponent<Animator>().Play("attackJump");
-                Attack(1);                
+                Attack(1);
             }
             else if (Input.GetKeyUp(KeyCode.RightArrow))
             {
                 GetComponent<Animator>().Play("attackRight");
                 Attack(2);
             }
+        }
         
     }
 
@@ -52,7 +59,7 @@ public class Player : MonoBehaviour
             if (KeyPressOrder.Count == 0)
             {
                 RandomOrder();
-
+                Ninjalås = false;
             }
         }
         else if (key != KeyPressOrder[0])
@@ -91,5 +98,16 @@ public class Player : MonoBehaviour
         }
         TextOrdning.text = OrdningS;
 
+    }
+    public List<int> SkickaOrdning()
+    {
+        return KeyPressOrder;
+    }
+    public void changeKör()
+    {
+        if (kör == true)
+            kör = false;
+        else
+            kör = true;
     }
 }

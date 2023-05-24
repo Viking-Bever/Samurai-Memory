@@ -1810,7 +1810,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b94224085c5bd4c4890b28dbae91a300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyPressOrder: 
+  KeyPressOrder: 
+  Player: {fileID: 1511812194}
+  "k\xF6r": 0
+  "Ninjal\xE5s": 0
 --- !u!1 &1300233697
 GameObject:
   m_ObjectHideFlags: 0
@@ -2266,6 +2269,8 @@ MonoBehaviour:
   KeyPressOrder: 
   Health: 100
   TextOrdning: {fileID: 313443348}
+  "k\xF6r": 0
+  "Ninjal\xE5s": 0
 --- !u!95 &1511812200
 Animator:
   serializedVersion: 4
