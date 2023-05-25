@@ -14,16 +14,14 @@ public class Player : MonoBehaviour
     [SerializeField] private Text TextOrdning;
     [SerializeField] public Text ScoreNum;
     [SerializeField] public GameObject GameMananger;
-    public bool kör;
-    public bool Ninjalås;
+    //public bool kör;
+    //public bool Ninjalås;
 
     private bool nedTryckt = false;
     // Start is called before the first frame update
     void Start()
     {
         RandomOrder();
-        kör = false;
-        Ninjalås = false;
         Skriv();
         GameMananger.GetComponent<GameMananger>().changeKör();
         _anim = GetComponent<Animator>();
@@ -32,7 +30,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Ninjalås == true)
+        if (GameMananger.GetComponent<GameMananger>().Ninjalås == true)
         {
             if (Input.GetKeyUp(KeyCode.DownArrow))
             {
@@ -88,6 +86,7 @@ public class Player : MonoBehaviour
             KeyPressOrder.Add(Random.Range(0, 3));
             Debug.Log(KeyPressOrder[i]);
         }
+        
     }
     void TakeDmg()
     {

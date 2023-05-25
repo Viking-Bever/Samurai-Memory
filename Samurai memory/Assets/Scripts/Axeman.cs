@@ -22,7 +22,7 @@ public class Axeman : MonoBehaviour
     void Update()
     {
        // Player.GetComponent<Player>().changeKör();
-        if (kör == true)
+        if (GameMananger.GetComponent<GameMananger>().AxeManStatus() == true)
         {
             KeyPressOrder = Player.GetComponent<Player>().SkickaOrdning();
             if (KeyPressOrder[0] == 1)
@@ -41,9 +41,13 @@ public class Axeman : MonoBehaviour
                 KeyPressOrder.RemoveAt(0);
             }
         }
-        if (KeyPressOrder.Count == 0)
+        if (KeyPressOrder.Count == 0)// && GameMananger.GetComponent<GameMananger>().Ninjalås == false)
         {
-            GameMananger.GetComponent<GameMananger>().changeNinjalås();
+            if (GameMananger.GetComponent<GameMananger>().PlayerStatus() == false)
+            {
+                GameMananger.GetComponent<GameMananger>().changeNinjalås();
+                GameMananger.GetComponent<GameMananger>().changeKör();
+            }
         }
     }
 }
