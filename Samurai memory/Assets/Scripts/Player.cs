@@ -9,8 +9,11 @@ public class Player : MonoBehaviour
 {
     public List<int> KeyPressOrder = new List<int>();
     public int Health = 100;
+    public int Score;
     private Animator _anim;
     [SerializeField] private Text TextOrdning;
+    [SerializeField] public Text ScoreNum;
+    [SerializeField] public GameObject GameMananger;
     public bool kör;
     public bool Ninjalås;
 
@@ -19,16 +22,17 @@ public class Player : MonoBehaviour
     void Start()
     {
         RandomOrder();
-        kör = true;
+        kör = false;
         Ninjalås = false;
         Skriv();
+        GameMananger.GetComponent<GameMananger>().changeKör();
         _anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Ninjalås = true)
+        if (Ninjalås == true)
         {
             if (Input.GetKeyUp(KeyCode.DownArrow))
             {
@@ -46,6 +50,7 @@ public class Player : MonoBehaviour
                 Attack(2);
             }
         }
+       // ScoreNum.text = Score;
         
     }
 
@@ -55,11 +60,12 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Rätt");
             KeyPressOrder.RemoveAt(0);
-
+            Score += 10;
             if (KeyPressOrder.Count == 0)
             {
                 RandomOrder();
-                Ninjalås = false;
+                GameMananger.GetComponent<GameMananger>().changeNinjalås();
+                GameMananger.GetComponent<GameMananger>().changeKör();
             }
         }
         else if (key != KeyPressOrder[0])
@@ -102,12 +108,5 @@ public class Player : MonoBehaviour
     public List<int> SkickaOrdning()
     {
         return KeyPressOrder;
-    }
-    public void changeKör()
-    {
-        if (kör == true)
-            kör = false;
-        else
-            kör = true;
     }
 }
