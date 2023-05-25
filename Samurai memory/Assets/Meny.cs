@@ -15,4 +15,9 @@ public class Meny : MonoBehaviour
         Debug.Log("Quit");
         Application.Quit(); 
     }
+
+    public void Option()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+    }
 }
