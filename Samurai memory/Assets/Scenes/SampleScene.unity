@@ -1788,7 +1788,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1211973395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1836,7 +1836,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1283725911
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2481,7 +2481,7 @@ MonoBehaviour:
   TextOrdning: {fileID: 313443348}
   ScoreNum: {fileID: 728151961}
   GameMananger: {fileID: 1211973394}
-  "k\xF6r": 0
+  Axeman: {fileID: 1283725907}
   "Ninjal\xE5s": 0
 --- !u!95 &1511812200
 Animator:
