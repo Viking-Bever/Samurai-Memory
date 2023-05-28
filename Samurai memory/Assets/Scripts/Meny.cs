@@ -5,11 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Meny : MonoBehaviour
 {
-
+    //Ljud source. 
     public AudioSource audioPlayer; 
     // Tar dig till Spelet
     public void PlayGame()
     {
+        //Gör att ett ljud spelas.
         audioPlayer.Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
