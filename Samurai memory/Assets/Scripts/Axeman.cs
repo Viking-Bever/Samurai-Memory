@@ -51,7 +51,7 @@ public class Axeman : MonoBehaviour
             }
          } */ 
     }
-    public void PlayAnimations(List<int> KeyPressOrder)
+   /* public void PlayAnimations(List<int> KeyPressOrder)
     {
         KeyPressOrder = Player.GetComponent<Player>().SkickaOrdning();
         if (KeyPressOrder[0] == 1)
