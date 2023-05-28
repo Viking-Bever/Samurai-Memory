@@ -10,6 +10,9 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    public AudioSource audioplayer;
+    public AudioSource Aj;
+    public AudioSource HSsound; 
     public List<int> KeyPressOrder = new List<int>();
     public int Health = 30;
     public int ScoreNum;
@@ -87,6 +90,7 @@ public class Player : MonoBehaviour
         //kollar om du tryckte rätt
         if (key == KeyPressOrder[0])
         {
+            audioplayer.Play();
             //om du tryckte rätt då får du + en score. då uppdateras texten o lägger till +1. 
             ScoreNum += 1;
             MyScoreText.text = "Score: " + ScoreNum;
@@ -94,6 +98,7 @@ public class Player : MonoBehaviour
             // Kollar om scoret är högre än nu varandra highscoret. Om det är det. Så uppdateras highscoret. 
             if (HSnum < ScoreNum)
             {
+                HSsound.Play(); 
                 PlayerPrefs.SetInt("HS", ScoreNum);
             }
             
@@ -135,6 +140,7 @@ public class Player : MonoBehaviour
     //Tar skada
     void TakeDmg()
     {
+        Aj.Play(); 
         Health -= 10;
 
         // Om ditt liv är 0. Så flyttas man till GameOver scenen. 
