@@ -5,14 +5,19 @@ using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Threading.Tasks;
+using UnityEngine.SceneManagement; 
+
 
 public class Player : MonoBehaviour
 {
     public List<int> KeyPressOrder = new List<int>();
-    public int Health = 100;
-    public int Score;
-    [SerializeField] private Text TextOrdning;
-    [SerializeField] public Text ScoreNum;
+    public int Health = 30;
+    public int ScoreNum;
+    public int HSnum; 
+
+    [SerializeField] public Text TextOrdning;
+    [SerializeField] public Text MyScoreText;
+    [SerializeField] public Text HighScore; 
     [SerializeField] public GameObject ArrowU;
     [SerializeField] public GameObject ArrowD;
     [SerializeField] public GameObject ArrowR;
@@ -20,6 +25,16 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // tar senast highscore o lägger in. Om det inte finns något Highscore så e det 0. 
+        HSnum = PlayerPrefs.GetInt("HS", 0); 
+        // HS score texten + vad highscoret är. 
+        HighScore.text = "Highscore: " + HSnum;
+
+        //Score är = 0. Tar Score + 0. Score: 0. 
+        ScoreNum = 0;
+        MyScoreText.text = "Score: " + ScoreNum;
+
+        //....
         RandomOrder();
     }
 
@@ -72,13 +87,28 @@ public class Player : MonoBehaviour
         //kollar om du tryckte rätt
         if (key == KeyPressOrder[0])
         {
+            //om du tryckte rätt då får du + en score. då uppdateras texten o lägger till +1. 
+            ScoreNum += 1;
+            MyScoreText.text = "Score: " + ScoreNum;
+
+            // Kollar om scoret är högre än nu varandra highscoret. Om det är det. Så uppdateras highscoret. 
+            if (HSnum < ScoreNum)
+            {
+                PlayerPrefs.SetInt("HS", ScoreNum);
+            }
+            
+
             Debug.Log("Rätt");
             KeyPressOrder.RemoveAt(0);
-            Score += 10;
+            
+
+
             if (KeyPressOrder.Count == 0)
             {
                 RandomOrder();
             }
+
+            
         }
         //kollar om du tryckte fel
         else if (key != KeyPressOrder[0])
@@ -106,5 +136,16 @@ public class Player : MonoBehaviour
     void TakeDmg()
     {
         Health -= 10;
+
+        // Om ditt liv är 0. Så flyttas man till GameOver scenen. 
+        if (Health == 0)
+        {
+            Debug.Log("Died"); 
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        }
     }
+
+
+
+
 }
