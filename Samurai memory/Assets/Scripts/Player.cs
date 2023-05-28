@@ -45,21 +45,21 @@ public class Player : MonoBehaviour
     {
         // Kollar vilken knapp du trycker på
 
-            if (Input.GetKeyUp(KeyCode.DownArrow))
-            {
-                GetComponent<Animator>().Play("attackDown");
-                Attack(0);
-            }
-            else if (Input.GetKeyUp(KeyCode.UpArrow))
-            {
-                GetComponent<Animator>().Play("attackJump");
-                Attack(1);
-            }
-            else if (Input.GetKeyUp(KeyCode.RightArrow))
-            {
-                GetComponent<Animator>().Play("attackRight");
-                Attack(2);
-            }
+        if (Input.GetKeyUp(KeyCode.DownArrow))
+        {
+           GetComponent<Animator>().Play("attackDown");
+           Attack(0);
+        }
+        else if (Input.GetKeyUp(KeyCode.UpArrow))
+        {
+           GetComponent<Animator>().Play("attackJump");
+           Attack(1);      
+        }
+        else if (Input.GetKeyUp(KeyCode.RightArrow))
+        {
+           GetComponent<Animator>().Play("attackRight");
+           Attack(2);          
+        }
 
         //Bästmmer vilken av pilarna som ska vara aktiv
         if (KeyPressOrder[0] == 0)
@@ -80,7 +80,6 @@ public class Player : MonoBehaviour
             ArrowU.SetActive(false);
             ArrowD.SetActive(false);
         }
-        // ScoreNum.text = Score;
 
     }
     //Attack metoden
@@ -94,6 +93,7 @@ public class Player : MonoBehaviour
             ScoreNum += 1;
             MyScoreText.text = "Score: " + ScoreNum;
 
+
             // Kollar om scoret är högre än nu varandra highscoret. Om det är det. Så uppdateras highscoret. 
             if (HSnum < ScoreNum)
             {
@@ -101,17 +101,18 @@ public class Player : MonoBehaviour
             }
             
 
+
             Debug.Log("Rätt");
             KeyPressOrder.RemoveAt(0);
-            
-
-
-            if (KeyPressOrder.Count == 0)
+            if (KeyPressOrder.Count <= 0)
             {
                 RandomOrder();
             }
-
-            
+            // Kollar om scoret är högre än nu varandra highscoret. Om det är det. Så uppdateras highscoret. 
+            if (HSnum < ScoreNum)
+            {
+                PlayerPrefs.SetInt("HS", ScoreNum);
+            }
         }
         //kollar om du tryckte fel
         else if (key != KeyPressOrder[0])
@@ -120,10 +121,6 @@ public class Player : MonoBehaviour
             TakeDmg();
             Wolf.GetComponent<Animator>().Play("WolfA");
             GetComponent<Animator>().Play("dmg");
-            if (Health <= 10)
-            {
-                Debug.Log("You died");
-            }
         }
     }
     //Gör en random lista med 3 siffror
@@ -148,8 +145,4 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
         }
     }
-
-
-
-
 }
