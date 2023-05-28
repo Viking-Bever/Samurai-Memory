@@ -12,7 +12,6 @@ public class Player : MonoBehaviour
 {
     public AudioSource audioplayer;
     public AudioSource Aj;
-    public AudioSource HSsound; 
     public List<int> KeyPressOrder = new List<int>();
     public int Health = 30;
     public int ScoreNum;
@@ -98,7 +97,6 @@ public class Player : MonoBehaviour
             // Kollar om scoret är högre än nu varandra highscoret. Om det är det. Så uppdateras highscoret. 
             if (HSnum < ScoreNum)
             {
-                HSsound.Play(); 
                 PlayerPrefs.SetInt("HS", ScoreNum);
             }
             
